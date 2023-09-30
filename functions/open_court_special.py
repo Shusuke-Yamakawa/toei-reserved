@@ -18,22 +18,22 @@ from selenium.webdriver.common.keys import Keys
 import sys
 sys.path.append("../")
 
-class GetOpenCourt:
+class GetOpenCourtSpecial:
     COURT_TYPES = {"ハード": "2-1000-1020", "人工芝": "2-1000-1030"}
 
     TARGET_COURT = ['井の頭恩賜公園', '野川公園', '小金井公園', '府中の森公園', '武蔵野中央公園']
 
-    USER_ID = "87088869"
-    PASSWD = "19900818"
+    USER_ID = "86601338"
+    PASSWD = "19911111"
 
-    RETRY_USER_ID = "86329044"
-    RETRY_PASSWD = "19870513"
+    RETRY_USER_ID = "86560751"
+    RETRY_PASSWD = "19550223"
 
-    RETRY2_USER_ID = "86757664"
-    RETRY2_PASSWD = "19820914"
+    RETRY2_USER_ID = "86329053"
+    RETRY2_PASSWD = "19470602"
 
-    GET_LIMIT_DAY = 5
-    NOTIFY_OPEN_COURT = 5
+    GET_LIMIT_DAY = 4
+    NOTIFY_OPEN_COURT = 4
 
     TOEI_URL = "https://yoyaku.sports.metro.tokyo.lg.jp/"
 
@@ -264,7 +264,7 @@ class GetOpenCourt:
         mr = calendar.monthrange(year, month)
         # システム予約は2日前までなので、2日後以降を対象とする ※翌月の場合は、1日から対象とする
         day = day+2 if day != 1 else day
-        return range(day, mr[1] + 1)
+        return range(day, day + 7)
 
     @staticmethod
     def _handle_week(year, month, day):
